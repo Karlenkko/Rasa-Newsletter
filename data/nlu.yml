@@ -1,0 +1,73 @@
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hey!
+    - Hallo
+    - Good day
+    - Good morning
+    - Hello
+
+- intent: ask_newsletter_channels
+  examples: |
+    - What?
+    - Which newsletters do you have?
+    - What do you have?
+    - Which are on your list?
+    - What is on your list?
+    - Show me your newsletters
+    - Show me your list
+    - what can I choose?
+    - what are available?
+    - do you have [sport](newsletter)
+
+- intent: subscribe
+  examples: |
+    - I want to get the newsletter
+    - Can you send me the newsletter?
+    - Can you sign me up for the newsletter?
+    - I would like to subscribe to the newsletter
+
+- intent: inform_email
+  examples: |
+    - My email is example@example.com
+    - random@example.com
+    - Please send it to anything@example.com
+    - Email is something@example.com
+
+- intent: inform_newsletter
+  examples: |
+    - I want to subscribe to sport
+    - I like sport
+    - I love tech
+    - weather
+
+- intent: deny
+  examples: |
+    - no
+
+- intent: finish
+  examples: |
+    - nothing more
+    - that would be all
+    - that was all
+    - no more thank you
+    - i'm done
+    - no more subscription
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - correct
+    - yup
+    - yeah
+    - that sounds good
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you

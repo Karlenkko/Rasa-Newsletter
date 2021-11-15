@@ -1,0 +1,83 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- ask_newsletter
+- inform_email
+- subscribe
+- deny
+- affirm
+- goodbye
+
+entities:
+  - newsletter
+slots:
+  email:
+    type: text
+    influence_conversation: false
+  newsletter:
+    type: text
+    influence_conversation: false
+  subscription_list:
+    type: list
+    influence_conversation: false
+    auto_fill: false
+
+
+responses:
+  utter_greet:
+  - text: |
+      Hello! I have some wonderful newsletters. Do you want to check them out?
+  - text: |
+      Hi! Do you want to read newsletters that are sent automatically to your email?
+
+  utter_goodbye:
+  - text: |
+      Bye
+
+  utter_ask_email:
+  - text: |
+      What is your email address?
+
+  utter_ask_newsletter:
+  -text: |
+      What newsletter channels do you want to subscribe to?
+
+  utter_subscribed:
+  - text: |
+      Good. You are now subscribed to {newsletter}. Anything else?
+
+  utter_info_done:
+  - text: That's noted. You will receive an email to {email}.
+
+  utter_affirmed:
+  - text: |
+        Great.
+
+  utter_not_in_channel:
+    - text: |
+        Sorry, we don't have {requested_newsletter} in our available channels.
+
+  utter_deny:
+  - text: |
+      Sorry for the mistake, let's go back.
+
+actions:
+- validate_newsletter_form
+- action_newsletter_subscribed
+- action_show_subscription_list
+- action_show_channels
+
+forms:
+  info_form:
+    required_slots:
+      email:
+        - type: from_text
+
+  newsletter_form:
+    required_slots:
+      newsletter:
+      - type: from_entity
+        entity: newsletter
