@@ -6,7 +6,9 @@ intents:
 - greet
 - ask_newsletter
 - inform_email
+- inform_newsletter
 - subscribe
+- ask_newsletter_channels
 - deny
 - affirm
 - goodbye
@@ -42,7 +44,7 @@ responses:
       What is your email address?
 
   utter_ask_newsletter:
-  -text: |
+  - text: |
       What newsletter channels do you want to subscribe to?
 
   utter_subscribed:
@@ -71,13 +73,11 @@ actions:
 - action_show_channels
 
 forms:
-  info_form:
+  newsletter_form:
     required_slots:
       email:
         - type: from_text
-
-  newsletter_form:
-    required_slots:
       newsletter:
-      - type: from_entity
-        entity: newsletter
+        - type: from_entity
+          entity: newsletter
+

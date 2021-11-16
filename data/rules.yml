@@ -1,9 +1,18 @@
 rules:
-  - rule: activate subscribe form
+#  - rule: continue
+#    condition:
+#      - active_loop: info_form
+#    steps:
+#      - action: info_form
+#      - active_loop: null
+#      - action: newsletter_form
+#      - active_loop: newsletter_form
+  - rule: ask
     steps:
-    - intent: subscribe
-    - action: newsletter_form
-    - active_loop: newsletter_form
+      - intent: ask_newsletter_channels
+      - action: action_show_channels
+      - action: newsletter_form
+      - active_loop: newsletter_form
 
   - rule: submit newsletter form
     condition:
@@ -13,7 +22,7 @@ rules:
       - active_loop: null
       - slot_was_set:
           - requested_slot: null
-      - action: action_show_subscription_list
+      - action: action_newsletter_subscribed
 
   - rule: follow up
     steps:
@@ -35,25 +44,31 @@ rules:
       - action: action_newsletter_subscribed
       - intent: deny
       - action: action_show_subscription_list
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
       - action: utter_goodbye
-        -
+
   - rule: end 2
     steps:
       - action: action_show_channels
       - intent: deny
       - action: action_show_subscription_list
+      - active_loop: null
+      - slot_was_set:
+        - requested_slot: null
       - action: utter_goodbye
 
   - rule: end 3
     steps:
       - intent: finish
       - action: action_show_subscription_list
+      - active_loop: null
+      - slot_was_set:
+        - requested_slot: null
       - action: utter_goodbye
 
-  - rule: ask
-    steps:
-      - intent: ask_newsletter_channels
-      - action: action_show_channels
+
 
   - rule: intent subscribe to channels
     steps:

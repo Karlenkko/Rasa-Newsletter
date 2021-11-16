@@ -21,6 +21,15 @@ nlu:
     - what are available?
     - do you have [sport](newsletter)
 
+- synonym: bbc
+  examples: |
+    - bcc
+    - bbc news
+
+- synonym: cnn
+  examples: |
+    - ccn
+
 - intent: subscribe
   examples: |
     - I want to get the newsletter
@@ -37,10 +46,15 @@ nlu:
 
 - intent: inform_newsletter
   examples: |
-    - I want to subscribe to sport
-    - I like sport
-    - I love tech
-    - weather
+    - I want to subscribe to [sport](newsletter)
+    - I like [bbc](newsletter)
+    - I love [tech](newsletter)
+    - [sport](newsletter)
+    - [weather](newsletter)
+    - [bbc](newsletter)
+    - [cnn](newsletter)
+    - [travel](newsletter)
+    - [tech](newsletter)
 
 - intent: deny
   examples: |

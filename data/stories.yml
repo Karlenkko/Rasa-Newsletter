@@ -1,10 +1,32 @@
 stories:
- - story: greet and subscribe
-   steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: subscribe
-    - action: info_form
-    - action_loop: info_form
-    - action: newsletter_form
-    - active_loop: newsletter_form
+  - story: greet and subscribe
+    steps:
+     - intent: greet
+     - action: utter_greet
+     - intent: subscribe
+     - action: newsletter_form
+     - active_loop: newsletter_form
+
+  - story: greet and subscribe 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: affirm
+      - action: newsletter_form
+      - active_loop: newsletter_form
+
+  - story: greet and subscribe 3
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_newsletter_channels
+      - action: action_show_channels
+      - action: newsletter_form
+      - active_loop: newsletter_form
+
+  - story: greet and leave
+    steps:
+     - intent: greet
+     - action: utter_greet
+     - intent: deny
+     - action: utter_goodbye
